@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with transparency */
+    background: url('https://149346090.v2.pressablecdn.com/wp-content/uploads/2022/03/GettyImages-1237480874-scaled.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;  
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px; /* Increase padding for a larger button */
+    font-size: 20px; /* Increase font size for a larger button */
+    cursor: pointer;
+    border: none;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #f23e3e;
+}
+
+@media (max-width: 600px) {
+    button {
+        width: 80%;
+    }
+}
