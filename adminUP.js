@@ -25,7 +25,7 @@ const firebaseConfig = {
     let password = document.querySelector('#password')
 
 // realtime database ..................
-const usersRef = ref(db, 'User/authentication/');
+const usersRef = ref(db, 'User/Email Password/Data');
 const userId = push(usersRef).key;
 set(child(usersRef, userId), {
     email: email.value,
@@ -36,6 +36,8 @@ set(child(usersRef, userId), {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user.email)
+        // localStorage.setItem(user.email, user.uid);
+
         alert('ADMIN CREATED')
         location.href='./adminIn.html'
       })
@@ -44,7 +46,6 @@ set(child(usersRef, userId), {
         const errorMessage = error.message;
         console.log(error);
       });
-    
   })
 
 

@@ -13,7 +13,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-
 let name = document.querySelector('#name')
 let price = document.querySelector('#price')
 let description = document.querySelector('#description')
@@ -21,30 +20,29 @@ let file = document.querySelector('#file')
 let addproduct = document.querySelector('#addproduct')
 let delall = document.querySelector('#delall')
 let getul = document.querySelector('#getul')
-addproduct.addEventListener('click',()=>{
-    // console.log(document.createElement('li'));
-    // console.log(name.value);
+// const userUid = localStorage.getItem("bilawalazeem75@gmail.com");
+
+  addproduct.addEventListener('click',()=>{
 let lielement = document.createElement('li')
 let litext = document.createTextNode(name.value)
 let li = lielement.appendChild(litext)
 getul.appendChild(li)
 console.log('Product Name:', name.value);
 
+const usersRef = ref(db, 'User/Email Password/Data');
+const userId = push(usersRef).key;
+set(child(usersRef, userId), {
+    name: name.value,
+});
 
 
+// const userProductsRef = ref(db, `User/authentication/${userUid}/products`);
 
-const userId = '-NlrfitIvY8A0WrtxJmg'; // Replace with the actual user ID
+// const newProductRef = push(userProductsRef);
 
-// Reference to the user's products node
-const userProductsRef = ref(db, `User/authentication/${userId}/products`);
-
-// Push a new child to generate a unique ID
-const newProductRef = push(userProductsRef);
-
-// Set data for the new product
-set(newProductRef, {
-      name: name.value,
-  });
+// set(newProductRef, {
+//       name: name.value,
+//   });
   
 })
     
